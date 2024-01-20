@@ -53,8 +53,12 @@ export async function scrapeMapleItemDetails(code: string, type: 'monster' | 'it
       name: itemName,
       description: itemDescription || '설명이 없습니다.',
     };
-  } catch (error: Error) {
-    throw new Error(`Failed to scrape ${url}. Error: ${error.message}`);
+  } catch (error: unknown) {
+    if (error instanceof Error) {
+      throw new Error(`Failed to scrape ${url}. Error: ${error.message}`);
+    }
+
+    throw new Error(`Failed to scrape ${url}. Error: ${error}`);
   }
 }
 
