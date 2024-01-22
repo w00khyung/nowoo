@@ -1,9 +1,11 @@
 import { Inter } from "next/font/google";
 
-import { Analytics } from "@vercel/analytics/react";
+import { Analytics as VercelAnalytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata } from "next";
-import "./globals.css";
+
+import "@/app/_styles/globals.css";
+import GoogleAnalytics from "./_components/shared/google-analytics";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,7 +22,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Analytics />
+        <VercelAnalytics />
+        <GoogleAnalytics />
         <SpeedInsights />
         {children}
       </body>
