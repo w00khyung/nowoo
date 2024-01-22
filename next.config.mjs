@@ -2,12 +2,13 @@
 const nextConfig = {
   output: 'export',
   images: {
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'maplestory.io',
-      },
-    ],
+    unoptimized: true,
+    // remotePatterns: [
+    //   {
+    //     protocol: 'https',
+    //     hostname: 'maplestory.io',
+    //   },
+    // ],
   },
 };
 
