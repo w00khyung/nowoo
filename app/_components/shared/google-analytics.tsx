@@ -1,19 +1,14 @@
-"use client";
+'use client'
 
-import Script from "next/script";
-
-import * as gtag from "@/app/_lib/utils/gtag";
+import Script from 'next/script'
 
 const GoogleAnalytics = () => {
   return (
     <>
+      <Script strategy='afterInteractive' src={`https://www.googletagmanager.com/gtag/js?id=G-1PM7NG5MDT`} />
       <Script
-        strategy="afterInteractive"
-        src={`https://www.googletagmanager.com/gtag/js?id=${gtag.GA_TRACKING_ID}`}
-      />
-      <Script
-        id="gtag-init"
-        strategy="afterInteractive"
+        id='gtag-init'
+        strategy='afterInteractive'
         dangerouslySetInnerHTML={{
           __html: `
             window.dataLayer = window.dataLayer || [];
@@ -25,7 +20,7 @@ const GoogleAnalytics = () => {
         }}
       />
     </>
-  );
-};
+  )
+}
 
-export default GoogleAnalytics;
+export default GoogleAnalytics
