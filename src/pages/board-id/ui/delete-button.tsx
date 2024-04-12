@@ -8,6 +8,7 @@ import { useRouter } from 'next/navigation'
 import { useForm } from 'react-hook-form'
 import { Output, minLength, object, string } from 'valibot'
 
+import { valibotResolver } from '@hookform/resolvers/valibot'
 import { QUERY_KEY } from '../../board/lib/use-board'
 import { deleteBoard } from '../lib/action'
 

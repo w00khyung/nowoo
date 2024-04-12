@@ -24,11 +24,9 @@ export async function MePage() {
       createdDt: true,
     },
     where: {
-      id: Number(session.sub),
+      id: Number(session.user.id),
     },
   })
-
-  console.log('user', user)
 
   return (
     <div className='flex justify-center items-center flex-col gap-4 py-20'>

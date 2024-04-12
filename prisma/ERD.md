@@ -107,6 +107,13 @@ erDiagram
     }
 
 
+  "VerificationToken" {
+    String identifier
+    String token
+    DateTime expires
+    }
+
+
   "letters" {
     Int letter_idx "🗝️"
     String content
