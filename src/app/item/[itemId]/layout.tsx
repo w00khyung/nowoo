@@ -3,7 +3,7 @@ import { ROUTES } from '@/shared/routes'
 import { openGraphImage } from '@/shared/ui/open-graph'
 import { SearchLayout } from '@/widgets/search/ui/search-layout'
 
-export const getItemImage = (itemId: number) => {
+const getItemImage = (itemId: number) => {
   return `http://maplestory.io/api/gms/62/item/${itemId}/icon?resize=3`
 }
 

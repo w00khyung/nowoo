@@ -3,7 +3,7 @@ import { ROUTES } from '@/shared/routes'
 import { openGraphImage } from '@/shared/ui/open-graph'
 import { SearchLayout } from '@/widgets/search'
 
-export const getMonsterImage = (monsterId: number) => {
+const getMonsterImage = (monsterId: number) => {
   return `http://maplestory.io/api/gms/62/mob/animated/${monsterId}/move`
 }
 
