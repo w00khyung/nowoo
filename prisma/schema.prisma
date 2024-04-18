@@ -9,20 +9,20 @@ generator erd {
 }
 
 datasource db {
-  provider = "mysql"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
 model Item {
-  itemIdx         Int           @id @default(autoincrement()) @map("item_idx")
+  itemIdx         Int           @id @default(autoincrement()) @map("id")
   mapleItemId     Int           @map("maple_item_id")
-  nameKor         String        @map("name_kor") @db.LongText
-  nameEng         String        @map("name_eng") @db.LongText
-  descriptionKor  String        @map("description_kor") @db.LongText
-  descriptionEng  String        @map("description_eng") @db.LongText
-  overallCategory String        @map("overall_category") @db.LongText
-  category        String        @map("category") @db.LongText
-  subCategory     String        @map("sub_category") @db.LongText
+  nameKor         String        @map("name_kor") @db.Text
+  nameEng         String        @map("name_eng") @db.Text
+  descriptionKor  String        @map("description_kor") @db.Text
+  descriptionEng  String        @map("description_eng") @db.Text
+  overallCategory String        @map("overall_category") @db.Text
+  category        String        @map("category") @db.Text
+  subCategory     String        @map("sub_category") @db.Text
   reqLevel        Int           @map("req_level")
   reqStr          Int           @map("req_str")
   reqDex          Int           @map("req_dex")
@@ -41,7 +41,7 @@ model Item {
   incLuk          Int           @map("inc_luk")
   incHp           Int           @map("inc_hp")
   incMp           Int           @map("inc_mp")
-  optEtc          String?       @map("opt_etc") @db.LongText
+  optEtc          String?       @map("opt_etc") @db.Text
   priceShop       Int           @map("price_shop")
   priceAverage    Int           @map("price_average")
   views           BigInt        @default(0)
@@ -61,18 +61,16 @@ model MonsterDrop {
   items      Item    @relation(fields: [itemId], references: [itemIdx])
   monsters   Monster @relation(fields: [monsterId], references: [monsterIdx])
 
-  @@index([itemId], map: "monster_drops_item_id_fkey")
-  @@index([monsterId], map: "monster_drops_monster_id_fkey")
   @@map("monster_drops")
 }
 
 model Monster {
-  monsterIdx      Int           @id @default(autoincrement()) @map("monster_idx")
+  monsterIdx      Int           @id @default(autoincrement()) @map("id")
   mapleMobId      Int           @map("maple_mob_id")
   nameKor         String        @map("name_kor")
   nameEng         String        @map("name_eng")
-  descriptionKor  String        @map("description_kor") @db.LongText
-  descriptionEng  String        @map("description_eng") @db.LongText
+  descriptionKor  String        @map("description_kor") @db.Text
+  descriptionEng  String        @map("description_eng") @db.Text
   level           Int
   hp              Int
   mp              Int
@@ -146,7 +144,7 @@ model VerificationToken {
 
 model Letter {
   letterIdx Int       @id @default(autoincrement()) @map("letter_idx")
-  content   String    @db.LongText
+  content   String    @db.Text
   from      Int
   to        Int
   coin      Int       @default(0)
@@ -160,7 +158,7 @@ model Letter {
 model Party {
   partyIdx         Int       @id @default(autoincrement()) @map("party_idx")
   categoryId       Int
-  description      String    @db.LongText
+  description      String    @db.Text
   recruiterId      Int       @map("recruiter_id")
   peopleLimit      Int       @default(2) @map("people_limit")
   levelLimit       Int       @default(0) @map("level_limit")
@@ -187,7 +185,7 @@ model PartyCategory {
 model Board {
   boardIdx    Int       @id @default(autoincrement()) @map("board_idx")
   title       String
-  description String    @db.LongText
+  description String    @db.Text
   writerId    Int       @map("writer_id")
   category    Int
   views       BigInt    @default(0)
@@ -197,13 +195,12 @@ model Board {
   writer      User      @relation(fields: [writerId], references: [id])
   commnets    Comment[]
 
-  @@index([writerId], map: "boards_writer_id_fkey")
   @@map("boards")
 }
 
 model Comment {
   commentIdx      Int       @id @default(autoincrement()) @map("comment_idx")
-  comment         String    @db.LongText
+  comment         String    @db.Text
   parentCommentId Int?      @map("parent_comment_id")
   boardId         Int       @map("board_id")
   writerId        Int       @map("writer_id")
@@ -213,7 +210,5 @@ model Comment {
   board           Board     @relation(fields: [boardId], references: [boardIdx])
   writer          User      @relation(fields: [writerId], references: [id])
 
-  @@index([boardId], map: "comments_board_id_fkey")
-  @@index([writerId], map: "comments_writer_id_fkey")
   @@map("comments")
 }

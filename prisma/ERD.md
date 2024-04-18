@@ -2,7 +2,7 @@
 erDiagram
 
   "items" {
-    Int item_idx "🗝️"
+    Int id "🗝️"
     Int maple_item_id
     String name_kor
     String name_eng
@@ -48,7 +48,7 @@ erDiagram
 
 
   "monsters" {
-    Int monster_idx "🗝️"
+    Int id "🗝️"
     Int maple_mob_id
     String name_kor
     String name_eng

@@ -1,15 +1,11 @@
 'use client'
 
-import Link from 'next/link'
-
-import { ROUTES } from '@/shared/routes'
-
 export function Menu() {
   return (
     <div className='flex'>
-      <Link className='border-r border-[#BCBCBC] px-6 max-md:px-4' href={ROUTES.FREE_BOARD.LIST}>
+      {/* <Link className='border-r border-[#BCBCBC] px-6 max-md:px-4' href={ROUTES.FREE_BOARD.LIST}>
         자유게시판
-      </Link>
+      </Link> */}
       <a
         className='border-r border-[#BCBCBC] px-6 max-md:px-4'
         href='https://discord.gg/mapleland'

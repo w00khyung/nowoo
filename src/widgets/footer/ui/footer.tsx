@@ -1,6 +1,3 @@
-import { icon } from '@/shared/icon'
-import Image from 'next/image'
-
 export function Footer() {
   return (
     <footer className='flex h-[200px] items-center justify-center bg-[#2C2F36] px-24 py-16 text-[#9B9B9B] max-md:p-4'>
@@ -13,7 +10,7 @@ export function Footer() {
           </p>
         </div>
         <div className='flex items-center gap-2'>
-          <a className='rounded-full bg-white p-2' href='https://twitter.com/yoowo16' rel='noreferrer' target='_blank'>
+          {/* <a className='rounded-full bg-white p-2' href='https://twitter.com/yoowo16' rel='noreferrer' target='_blank'>
             <Image src={icon.x} width={16} height={16} alt='X' />
           </a>
           <a
@@ -31,7 +28,7 @@ export function Footer() {
             target='_blank'
           >
             <Image src={icon.kakao} width={16} height={16} alt='kakao' />
-          </a>
+          </a> */}
         </div>
         <div className='flex items-center gap-2 max-lg:gap-4'>
           <a href='mailto:nolangwoosan@gmail.com' rel='noreferrer' target='_blank'>
