@@ -30,7 +30,7 @@ height='70'
 ### 1. .env.local 파일 생성
 
 ```
-DATABASE_URL=DATABASE_URL=mysql://mysql:mysql@localhost:5432/mysql
+DATABASE_URL=DATABASE_URL=postgres://admin:password@localhost:5432/postgres
 ```
 
 ## 실행 방법

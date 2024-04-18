@@ -8,7 +8,7 @@ export default async function PopularMonsters() {
   const monsters = await prisma.monster.findMany({
     where: {
       nameKor: {
-        in: ['쿨리 좀비', '루나픽시', '주니어 그류핀', '레드 드레이크', '라이칸스로프'],
+        in: ['쿨리 좀비', '루나픽시', '파이어독', '레드 드레이크', '라이칸스로프'],
       },
     },
     take: 5,

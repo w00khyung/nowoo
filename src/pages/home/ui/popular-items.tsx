@@ -8,7 +8,7 @@ export default async function PopularItems() {
   const items = await prisma.item.findMany({
     where: {
       nameKor: {
-        in: ['토비 표창', '이블윙즈', '뇌전 수리검', '노란색 우산', '장갑 공격력 주문서 60%'],
+        in: ['창 공격력 주문서 60%', '이블윙즈', '뇌전 수리검', '피닉스 완드', '장갑 공격력 주문서 60%'],
       },
     },
     select: {
